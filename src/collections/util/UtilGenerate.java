@@ -5,7 +5,6 @@ import collections.Student;
 import collections.User;
 import org.apache.commons.lang3.RandomStringUtils;
 
-
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -61,7 +60,7 @@ public class UtilGenerate {
         return generatedString;
     }
 
-    public static LinkedList<User> getFriendsList(){
+    public static LinkedList<User> getFriendsList() {
         LinkedList<User> users = new LinkedList<>();
         for (int i = 0; i < 3; i++) {
             User user = new User();
@@ -71,31 +70,27 @@ public class UtilGenerate {
         return users;
     }
 
-    public static LinkedList<User> getFriends(long depth) {// I don't know how to stop
+    //outputting a collection using recursion
+    public static LinkedList<User> getFriends(long depth) {// I don't understand what's going wrong
 
         LinkedList<User> users = new LinkedList<>();
 
 
-            if (depth!=0) {
+        if (depth != 0) {
+
+            for (long i = 0; i < depth; i++) {
 
 
-                for (long i = 0; i < depth; i++) {
-
-
-                    users.add(new User(Util.getRandomUser(),getFriends(depth-1)));
-                }
-
-
-
-                return users;
-
-
-            } else {
-
-                return getFriends(depth - 1);
-
+                users.add(new User(Util.getRandomUser(), getFriends(depth - 1)));
             }
 
+            return users;
+
+        } else {
+
+            return getFriends(depth - 1);
+
+        }
 
 
     }

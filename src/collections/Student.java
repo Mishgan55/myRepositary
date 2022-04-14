@@ -2,7 +2,7 @@ package collections;
 
 import java.util.Objects;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
     private int id;
 
     private String studentName;
@@ -22,7 +22,6 @@ public class Student implements Comparable<Student>{
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
-
 
 
     public int getId() {
@@ -56,7 +55,7 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student o) {
-        return this.id-o.id;
+        return this.id - o.id;
     }
 }
 

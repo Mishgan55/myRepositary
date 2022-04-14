@@ -11,12 +11,10 @@ public class Book implements Titles, Comparable<Book> {
     private String surname;
 
 
-
-
     public Book() {
         title = getRandomBook();
-        name= getRandomName();
-        surname=getRandomSurname();
+        name = getRandomName();
+        surname = getRandomSurname();
     }
 
     public Book(String title, String name, String surname) {
@@ -75,9 +73,8 @@ public class Book implements Titles, Comparable<Book> {
     @Override
     public int compareTo(Book book) {
         return Comparator.comparing(Book::getTitle).thenComparing(Book::getName).
-                thenComparing(Book::getSurname).compare(this,book);
+                thenComparing(Book::getSurname).compare(this, book);
     }
-
 
 
     public static class CompareTitle implements Comparator<Book> {
@@ -86,8 +83,9 @@ public class Book implements Titles, Comparable<Book> {
         public int compare(Book o1, Book o2) {
             return o1.getTitle().compareTo(o2.getTitle());
 
-            }
         }
+    }
+
     public static class CompareName implements Comparator<Book> {
 
         @Override
@@ -96,6 +94,7 @@ public class Book implements Titles, Comparable<Book> {
 
         }
     }
+
     public static class CompareSurname implements Comparator<Book> {
 
         @Override
@@ -104,7 +103,6 @@ public class Book implements Titles, Comparable<Book> {
 
         }
     }
-
 
 
 }

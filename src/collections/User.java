@@ -20,8 +20,8 @@ public class User {
 
     public User() {
 
-        name=getRandomUser() ;
-        friends= UtilGenerate.getFriends(5);
+        name = getRandomUser();
+        friends = UtilGenerate.getFriends(5);
 
 
     }
@@ -50,8 +50,8 @@ public class User {
     @Override
     public String toString() {
         return
-                 name +"-> " +'{'+
-                  friends +'}'
+                name + "-> " + '{' +
+                        friends + '}'
                 ;
     }
 }
