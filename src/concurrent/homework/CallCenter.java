@@ -4,17 +4,24 @@ public class CallCenter {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("callCenter start work\n");
         Operator operator = new Operator();
-        Thread[] threads = new Thread[11];
-        for (int i = 1; i <= 10; i++)
+        Thread[] threads = new Thread[16];
+
+        for (int i = 1; i <= 15; i++)
         {
+
             threads[i] = new Thread(new Client(operator), "Client " + i);
 
+
+
         }
-        for (int i = 1; i <= 10; i++)
-        {
+        synchronized (threads){
+
+            for (int i = 1; i <= 15; i++) {
 
 
-            threads[i].start();
+                threads[i].start();
+                Thread.sleep(50);}
+
 
         }
 

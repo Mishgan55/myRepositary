@@ -17,8 +17,8 @@ public class Operator {
 
     public Operator() {
 
-        semaphore = new Semaphore(3);
-        freeOperator = new boolean[4];
+        semaphore = new Semaphore(5);
+        freeOperator = new boolean[6];
         operatorLock = new ReentrantLock();
         Arrays.fill(freeOperator, true);
 
@@ -29,7 +29,7 @@ public class Operator {
             semaphore.acquire();
             int assignedOperator = getOperator();
 
-            Thread.sleep(1000);
+
 
             System.out.println("Operator " + assignedOperator +
                     " start conversation with  " + Thread.currentThread().getName());
@@ -38,7 +38,7 @@ public class Operator {
 
             releaseOperator(assignedOperator);
 
-            System.out.println("Operator" + assignedOperator +
+            System.out.println("Operator " + assignedOperator +
                     " finished the conversation with the " + Thread.currentThread().getName());
 
             semaphore.release();
@@ -53,8 +53,9 @@ public class Operator {
     private int getOperator() throws InterruptedException {
         int foundOperator = -1;
         operatorLock.lock();
+        Thread.sleep(1000);
         for (int i = 1; i < freeOperator.length; i++) {
-            Thread.sleep(1000);
+
             if (freeOperator[i]) {
                 foundOperator = i;
                 freeOperator[i] = false;
@@ -72,7 +73,7 @@ public class Operator {
 
     private void releaseOperator(int operator) throws InterruptedException {
         operatorLock.lock();
-        Thread.sleep(1000);
+
         freeOperator[operator] = true;
         operatorLock.unlock();
 

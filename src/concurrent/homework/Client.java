@@ -21,7 +21,8 @@ public class Client implements Runnable, NameClient {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
+
 
         System.out.println(Thread.currentThread().getName() + " came to CallCentre ");
         try {
