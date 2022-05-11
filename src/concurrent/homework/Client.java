@@ -3,6 +3,7 @@ package concurrent.homework;
 public class Client implements Runnable, NameClient {
     private Operator operator;
     private String name;
+    public static final int CLIENTS=16;
 
     public Client() {
     }
@@ -19,7 +20,7 @@ public class Client implements Runnable, NameClient {
         this.operator = operator;
         this.name = randomName();
     }
-
+    // start the work of operators
     @Override
     public void run() {
 
